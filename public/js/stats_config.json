@@ -1,0 +1,182 @@
+{
+    "earth": {
+        "lang": {
+            "fr": "Terre",
+            "en": "Earth"
+        },
+        "bgColor": "#603814",
+        "textColor": "#fff",
+        "type": "element"
+    },
+    "fire": {
+        "lang": {
+            "fr": "Feu",
+            "en": "Fire"
+        },
+        "bgColor": "#ed1b24",
+        "textColor": "#fff",
+        "type": "element"
+    },
+    "nature": {
+        "lang": {
+            "fr": "Nature",
+            "en": "Nature"
+        },
+        "bgColor": "#00a650",
+        "textColor": "#fff",
+        "type": "element"
+    },
+    "wind": {
+        "lang": {
+            "fr": "Vent",
+            "en": "Wind"
+        },
+        "bgColor": "#a7a7a7",
+        "textColor": "#fff",
+        "type": "element"
+    },
+    "water": {
+        "lang": {
+            "fr": "Eau",
+            "en": "Water"
+        },
+        "bgColor": "#00bff5",
+        "textColor": "#fff",
+        "type": "element"
+    },
+    "lightning": {
+        "lang": {
+            "fr": "Foudre",
+            "en": "lightning"
+        },
+        "bgColor": "#f8931d",
+        "textColor": "#fff",
+        "type": "element"
+    },
+    "arcane": {
+        "lang": {
+            "fr": "Arcane",
+            "en": "Arcane"
+        },
+        "bgColor": "#652d90",
+        "textColor": "#fff",
+        "type": "element"
+    },
+    "strength": {
+        "lang": {
+            "fr": "Force",
+            "en": "Strength"
+        },
+        "bgColor": "#fff",
+        "textColor": "#000",
+        "type": "stat"
+    },
+    "intel": {
+        "lang": {
+            "fr": "Intelligence",
+            "en": "Intelligence"
+        },
+        "bgColor": "#fff",
+        "textColor": "#000",
+        "type": "stat"
+    },
+    "wisdom": {
+        "lang": {
+            "fr": "Sagesse",
+            "en": "Wisdom"
+        },
+        "bgColor": "#fff",
+        "textColor": "#000",
+        "type": "stat"
+    },
+    "agility": {
+        "lang": {
+            "fr": "Agilité",
+            "en": "Agility"
+        },
+        "bgColor": "#fff",
+        "textColor": "#000",
+        "type": "stat"
+    },
+    "pvMax": {
+        "lang": {
+            "fr": "Pv Max",
+            "en": "Pv Max"
+        },
+        "bgColor": "#fff",
+        "textColor": "#000",
+        "type": "ressource"
+    },
+    "pv": {
+        "lang": {
+            "fr": "Pv",
+            "en": "Pv"
+        },
+        "bgColor": "#fff",
+        "textColor": "#000",
+        "type": "ressource"
+    },
+    "manaMax": {
+        "lang": {
+            "fr": "Mana Max",
+            "en": "Mana Max"
+        },
+        "bgColor": "#fff",
+        "textColor": "#000",
+        "type": "ressource"
+    },
+    "mana": {
+        "lang": {
+            "fr": "Mana",
+            "en": "Mana"
+        },
+        "bgColor": "#fff",
+        "textColor": "#000",
+        "type": "ressource"
+    },
+    "level": {
+        "lang": {
+            "fr": "Niveau",
+            "en": "Level"
+        },
+        "bgColor": "#fff",
+        "textColor": "#000",
+        "type": "ressource"
+    },
+    "xp": {
+        "lang": {
+            "fr": "Xp",
+            "en": "Xp"
+        },
+        "bgColor": "#fff",
+        "textColor": "#000",
+        "type": "ressource"
+    },
+    "resists": {
+        "lang": {
+            "fr": "Resistances",
+            "en": "Resistances"
+        },
+        "bgColor": "#fff",
+        "textColor": "#000",
+        "type": "title"
+    },
+    "bonus": {
+        "lang": {
+            "fr": "Bonus",
+            "en": "Bonus"
+        },
+        "bgColor": "#fff",
+        "textColor": "#000",
+        "type": "title"
+    },
+        "name": {
+        "lang": {
+            "fr": "Nom",
+            "en": "Name"
+        },
+        "bgColor": "#fff",
+        "textColor": "#000",
+        "type": "title"
+    }
+}

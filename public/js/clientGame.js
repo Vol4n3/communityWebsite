@@ -1,6 +1,15 @@
 (function () {
     "use strict";
+
     const PERSO_PANEL = document.getElementById('personnage_panel');
+    var stats_config = {};
+    const LANG = "fr";
+    fetch('/js/stats_config.json').then(
+        blob => blob.json()).then(
+            data => {
+                stats_config = data;
+                ready();
+            });
     class Elements_stat {
         constructor(elements) {
             if (elements) {
@@ -37,16 +46,16 @@
         constructor(name, stats) {
             this.name = name || " ";
             if (stats) {
-                this.strength = stats.strength || 0;
-                this.intel = stats.intel || 0;
-                this.wisdom = stats.wisdom || 0;
-                this.agility = stats.agility || 0;
+                this.level = stats.level || 0;
+                this.xp = stats.xp || 0;
                 this.pvMax = stats.pvMax || 0;
                 this.pv = stats.pv || 0;
                 this.manaMax = stats.manaMax || 0;
                 this.mana = stats.mana || 0;
-                this.level = stats.level || 0;
-                this.xp = stats.xp || 0;
+                this.strength = stats.strength || 0;
+                this.intel = stats.intel || 0;
+                this.wisdom = stats.wisdom || 0;
+                this.agility = stats.agility || 0;
                 this.resists = new Resists(stats.resists || {});
                 this.bonus = new Bonus(stats.bonus || {});
             }
@@ -65,28 +74,39 @@
     }
     class Htmlstat {
         constructor(name, value) {
-            this.name = name || "none";
-            this.value = value || "0";
+            this.info = stats_config[name];
+            this.name = this.info.lang[LANG];
+            this.value = value;
             this.wraper = document.createElement('div');
+            this.wraper.className = this.info.type;
+            this.wraper.setAttribute('statname',name);
+            this.wraper.appendChild(this.getText());
+            this.wraper.appendChild(this.getValue());
         }
-        getLabel() {
+        getText() {
             let label = document.createElement('span');
             label.textContent = this.name;
+            label.className = "label";
+            label.style.backgroundColor = this.info.bgColor;
+            label.style.color = this.info.textColor;
             return label;
         }
         getValue() {
             let value = document.createElement('span');
+            value.className = "value";
             value.textContent = this.value;
             return value;
         }
         getBtn() {
             let btn = document.createElement('button');
-            this.wraper.appendChild(this.getLabel());
-            this.wraper.appendChild(this.getValue());
             this.wraper.appendChild(btn);
             return this.wraper;
         }
-        get
+        getLabel(){
+            return this.wraper;
+        }
+
+
     }
     class FichePersonnage {
         constructor(perso) {
@@ -97,27 +117,31 @@
                 PERSO_PANEL.removeChild(PERSO_PANEL.firstChild);
             }
             let wrap = document.createElement('div');
-            var stats = this.perso.getValues();
-            console.log(stats)
+            wrap.className = "persostat"
+            let stats = this.perso.getValues();
+
             for (let i in stats) {
                 if (typeof (stats[i]) == "object") {
-                    //  res[i] = this[i].getValues();
-                    
-                 }
-                 else if(i == "name"){
-                     
+                    let temp = stats[i];
+                    let htmlstat = new Htmlstat(i, "" );
+                    wrap.appendChild(htmlstat.getLabel());
+                    for(let j in temp){
+                        let htmlstat = new Htmlstat(j, temp[j]);
+                        wrap.appendChild(htmlstat.getLabel());
+                    }
                  }
                  else {
-                    var htmlstat = new Htmlstat(i, stats[i]);
-                    wrap.appendChild(testbtn.getbtn());
+                    let htmlstat = new Htmlstat(i, stats[i]);
+                    wrap.appendChild(htmlstat.getLabel());
                 }
             }
             PERSO_PANEL.appendChild(wrap)
         }
     }
-    var p = new Personnage("vlad", {});
-    var f = new FichePersonnage(p);
-    f.show();
+    function ready(){
+        var p = new Personnage("lol", {});
+        var f = new FichePersonnage(p);
+        f.show();
+    }
 
 })()
-98/147
