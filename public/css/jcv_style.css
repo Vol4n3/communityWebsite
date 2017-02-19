@@ -2,17 +2,20 @@
 *{
     /*border: 1px solid darkblue;  */
 }
-.box{
-    height: 600px;
-}
 /* end debug*/
 /*
 * Global style
 */
 a{
     text-decoration: none;
-        cursor: pointer;
+    cursor: pointer;
 }
+/*
+*  
+*/
+
+
+
 /*
 * Alignement
 */
@@ -35,8 +38,17 @@ a{
 .box.start{
     justify-content: flex-start;
 }
-.box.start{
+.box.end{
     justify-content: flex-end;
+}
+.box.y_end{
+    align-items: flex-end;
+}
+.box.y_start{
+    align-items: flex-start;
+}
+.box.y_center{
+    align-items: center;
 }
 .box.center{
     justify-content: center;

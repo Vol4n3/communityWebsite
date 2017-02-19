@@ -3,9 +3,10 @@ html
     head
         meta(charset="utf-8")
         meta(name="viewport" content="width=device-width, initial-scale=1")
-        title rencontre | #{title}
+        title Communauté | #{title}
         block styles
             link(rel="stylesheet" type="text/css" href="https://necolas.github.io/normalize.css/5.0.0/normalize.css")
+            link(rel="stylesheet" type="text/css" href="/css/font-awesome.min.css")
             link(rel="stylesheet" type="text/css" href="/css/jcv_style.css")
             link(rel="stylesheet" type="text/css" href="/css/main.css")
         block scripts
@@ -14,7 +15,11 @@ html
             script(defer src="/js/clientApp.js")
     body
         block header
-            header
+            header.box.center
+                div.logo
+                    i.fa.fa-users(aria-hidden="true")
+                div.logo
+                    i.fa.fa-users(aria-hidden="true")
         block body
             p Bonjour Jade
             div
