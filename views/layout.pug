@@ -1,0 +1,26 @@
+doctype html
+html
+    head
+        meta(charset="utf-8")
+        meta(name="viewport" content="width=device-width, initial-scale=1")
+        title rencontre | #{title}
+        block styles
+            link(rel="stylesheet" type="text/css" href="https://necolas.github.io/normalize.css/5.0.0/normalize.css")
+            link(rel="stylesheet" type="text/css" href="/css/jcv_style.css")
+            link(rel="stylesheet" type="text/css" href="/css/main.css")
+        block scripts
+            script(defer src="/socket.io/socket.io.js")
+            script(defer src="/js/global.js")
+            script(defer src="/js/clientApp.js")
+    body
+        block header
+            header
+        block body
+            p Bonjour Jade
+            div
+                span item 1
+                span item 2
+                a item 3
+                span item 4
+                span item 5
+        block footer

@@ -1,0 +1,113 @@
+/* debug */
+*{
+    /*border: 1px solid darkblue;  */
+}
+.box{
+    height: 600px;
+}
+/* end debug*/
+/*
+* Global style
+*/
+a{
+    text-decoration: none;
+        cursor: pointer;
+}
+/*
+* Alignement
+*/
+
+/*
+* box
+*/
+.box{
+    display: flex;
+}
+.box.left{
+   flex-direction: row-reverse;
+}
+.box.right{
+   flex-direction: row;
+}
+.box.up{
+   flex-direction: column-reverse;
+}
+.box.start{
+    justify-content: flex-start;
+}
+.box.start{
+    justify-content: flex-end;
+}
+.box.center{
+    justify-content: center;
+}
+.box.space_around{
+    justify-content: space-around;
+}
+.box.space_between{
+    justify-content: space-between;
+}
+.box.down{
+   flex-direction: column;
+}
+.box.multiline{
+    flex-wrap: wrap;
+}
+.box.auto > *{
+    flex-grow: 1;
+}
+.shadow_box{
+    -moz-box-shadow: 0px 4px 10px 2px #656565;
+    -webkit-box-shadow: 0px 4px 10px 2px #656565;
+    -o-box-shadow: 0px 4px 10px 2px #656565;
+    box-shadow: 0px 4px 10px 2px #656565;
+    filter:progid:DXImageTransform.Microsoft.Shadow(color=#656565, Direction=180, Strength=10);
+}
+/*
+    Button
+*/
+.btn{
+    cursor: pointer;
+    padding: 4px 13px;
+    border: 1px solid #000;
+    color: #000;
+    transition: color 0.3s, border 0.3s;
+    margin: 0 20px;
+    -webkit-touch-callout: none; 
+    -webkit-user-select: none; 
+    -moz-user-select: none; 
+    -ms-user-select: none;
+    user-select: none;
+}
+.btn:hover{
+    border: 1px solid #006CC2;
+    color: #006CC2;
+}
+.btn:active{
+    border: 1px solid #000;
+    color: #000;
+}
+.btn.green{
+    border: 1px solid #81BC06;
+    color: #81BC06;
+}
+.btn.green:hover{
+    border: 1px solid #bcb806;
+    color: #bcb806;
+}
+.btn.green:active{
+    border: 1px solid #81BC06;
+    color: #81BC06;
+}
+.btn.red{
+    border: 1px solid #F35325;
+    color: #F35325;
+}
+.btn.red:hover{
+    border: 1px solid #fcb806;
+    color: #fcb806;
+}
+.btn.red:active{
+    border: 1px solid #F35325;
+    color: #F35325;
+}
