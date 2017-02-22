@@ -1,5 +1,48 @@
+@import url('https://fonts.googleapis.com/css?family=Muli');
+body{
+    font-family: 'Muli', sans-serif;  
+}
 header{
     background-color: #27282D;
     color: white;
-    height: 150px;  
+    padding: 20px 0px;
+}
+.logo{
+    text-align: center;
+    padding-bottom: 20px; 
+}
+.logo h1{
+    margin-bottom:0; 
+}
+.logo i.fa::before{
+    width: 2em;
+}
+
+.search_warp{
+    margin: 20px 0px;
+    width: 35%;
+    max-width:  500px;
+    min-width: 240px;
+    position: relative;
+    border: 1px solid #c0c0c0;
+}
+.search{
+    border: none;
+    padding: 13px 50px 13px 20px;
+    outline: 0;
+    width: 100%;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.search::-moz-placeholder{
+    text-align: center;
+}
+.search::-webkit-input-placeholder{
+    text-align: center;
+}
+.search_submit{
+    position: absolute;
+    top: 30%;
+    right: 3%;
 }
