@@ -1,0 +1,9 @@
+extends layout.pug
+append content
+    each section,index in sections.length ? sections : [{body :"Pas de résultat trouvé"}]
+        article
+            header= section.header
+            div.bbParses= section.body
+            footer= section.footer
+    div#wysiwyg(contenteditable="true") [p]test[/p]
+    

@@ -1,11 +1,21 @@
 @import url('https://fonts.googleapis.com/css?family=Muli');
 body{
-    font-family: 'Muli', sans-serif;  
+    font-family: 'Muli', sans-serif;
+    opacity: 0;
+    transition: opacity 3s;
+    -webkit-transition: opacity 3s;
 }
-header{
+.header{
     background-color: #27282D;
     color: white;
     padding: 20px 0px;
+}
+.content{
+        min-height: 900px;
+        max-width: 1600px;
+        margin: 0 auto; 
+        padding: 30px;
+        background-color: lightgray;
 }
 .logo{
     text-align: center;
@@ -21,7 +31,7 @@ header{
 .search_warp{
     margin: 20px 0px;
     width: 35%;
-    max-width:  500px;
+    max-width:  700px;
     min-width: 240px;
     position: relative;
     border: 1px solid #c0c0c0;
@@ -45,4 +55,13 @@ header{
     position: absolute;
     top: 30%;
     right: 3%;
+}
+.footer{
+    background-color: #27282D;
+    color: white;
+    padding: 20px 0px;
+}
+#wysiwyg{
+    background: #fff;
+    height: 60px;
 }
