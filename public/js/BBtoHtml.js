@@ -26,6 +26,14 @@ const BBtoHtmlTags = [
         }
     },
     {
+        "regex" : /\[youtube\=([-_a-z0-9]*)]/gi,
+        "replace" : function(res){
+            return '<iframe class="youtube "type="text/html" width="640" height="360" src="http://www.youtube.com/embed/'
+            + res[1] + '.?rel=0&showinfo=0" frameborder="0"></iframe>'
+        }
+
+    },
+    {
         "regex" : /\[color=([a-f0-9]{6})\](.*)\[\/color]/ig,
         "replace" : function(res){
             return '<font color="' + res[1] + '"> '+ res[2] + '</font>';
