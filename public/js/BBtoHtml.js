@@ -25,82 +25,106 @@ const BBtoHtmlTags = [
             return "<br>";
         }
     },
+
     {
         "regex" : /\[youtube\=([-_a-z0-9]*)]/gi,
         "replace" : function(res){
-            return '<iframe class="youtube "type="text/html" width="640" height="360" src="http://www.youtube.com/embed/'
-            + res[1] + '.?rel=0&showinfo=0" frameborder="0"></iframe>'
+            return '<div style="position: relative;">'
+            +'<img style="display: block;width: 100%;height: auto;" src="data:image/gif;base64,R0lGODlhEAAJAIAAAP///wAAACH5BAEAAAAALAAAAAAQAAkAAAIKhI+py+0Po5yUFQA7"/>'
+            +'<iframe style="position: absolute;top: 0;left: 0;width: 100%;height: 100%;" class="youtube" type="text/html" width="640" height="360" src="https://www.youtube.com/embed/'
+            + res[1] + '?rel=0&showinfo=0" frameborder="0" allowfullscreen></iframe>'
+            +'</div>';
         }
 
     },
     {
-        "regex" : /\[color=([a-f0-9]{6})\](.*)\[\/color]/ig,
+        "regex" : /\[dailymotion\=([-_a-z0-9]*)]/gi,
+        "replace" : function(res){
+            return '<div style="position: relative;">'
+            +'<img style="display: block;width: 100%;height: auto;" src="data:image/gif;base64,R0lGODlhEAAJAIAAAP///wAAACH5BAEAAAAALAAAAAAQAAkAAAIKhI+py+0Po5yUFQA7"/>'
+            +'<iframe style="position: absolute;top: 0;left: 0;width: 100%;height: 100%;" class="dailymotion" type="text/html" width="640" height="360" '
+            +'src="http://www.dailymotion.com/embed/video/' + res[1] 
+            +'?endscreen-enable=false&ui-logo=false" frameborder="0" allowfullscreen></iframe>'
+            +'</div>';
+        }
+
+    },
+    {
+        "regex" : /\[wrap=([0-9]{1,3})\](.*?)\[\/wrap]/ig,
+        "replace" : function(res){
+            let number = Number.parseInt(res[1]);
+            number = number > 100 ? number = 100 : number;
+            return '<div style="width:' + number + '%;display:inline-block;"> '+ res[2] + '</div>';
+        }
+    },
+    {
+        "regex" : /\[color=([a-f0-9]{6})\](.*?)\[\/color]/ig,
         "replace" : function(res){
             return '<font color="' + res[1] + '"> '+ res[2] + '</font>';
         }
     },
     {
-        "regex" : /\[font=([a-z0-9_\.\-\s])*\](.*)\[\/font]/ig,
+        "regex" : /\[font=([a-z0-9_\.\-\s])*\](.*?)\[\/font]/ig,
         "replace" : function(res){
             return '<font face="' + res[1] + '"> '+ res[2] + '</font>';
         }
     },
     {
-        "regex" : /\[left\](.*)\[\/left]/ig,
+        "regex" : /\[left\](.*?)\[\/left]/ig,
         "replace" : function(res){
-            return '<div class="left_text"> '+ res[1] + '</div>';
+            return '<div style="text-align:left;"> '+ res[1] + '</div>';
         }
     },
     {
-        "regex" : /\[right\](.*)\[\/right]/ig,
+        "regex" : /\[right\](.*?)\[\/right]/ig,
         "replace" : function(res){
-            return '<div class="right_text"> '+ res[1] + '</div>';
+            return '<div style="text-align:right;"> '+ res[1] + '</div>';
         }
     },
     {
-        "regex" : /\[center\](.*)\[\/center]/ig,
+        "regex" : /\[center\](.*?)\[\/center]/ig,
         "replace" : function(res){
-            return '<div class="center_text"> '+ res[1] + '</div>';
+            return '<div style="text-align:center;"> '+ res[1] + '</div>';
         }
     },
     {
-        "regex" : /\[p\](.*)\[\/p]/ig,
+        "regex" : /\[p\](.*?)\[\/p]/ig,
         "replace" : function(res){
             return '<p> '+ res[1] + '</p>';
         }
     },
     {
-        "regex" : /\[h1\](.*)\[\/h1]/ig,
+        "regex" : /\[h1\](.*?)\[\/h1]/ig,
         "replace" : function(res){
             return '<h1> '+ res[1] + '</h1>';
         }
     },
     {
-        "regex" : /\[h2\](.*)\[\/h2]/ig,
+        "regex" : /\[h2\](.*?)\[\/h2]/ig,
         "replace" : function(res){
             return '<h2> '+ res[1] + '</h2>';
         }
     },
     {
-        "regex" : /\[h3\](.*)\[\/h3]/ig,
+        "regex" : /\[h3\](.*?)\[\/h3]/ig,
         "replace" : function(res){
             return '<h3> '+ res[1] + '</h3>';
         }
     },
     {
-        "regex" : /\[h4\](.*)\[\/h4]/ig,
+        "regex" : /\[h4\](.*?)\[\/h4]/ig,
         "replace" : function(res){
             return '<h4> '+ res[1] + '</h4>';
         }
     },
     {
-        "regex" : /\[h5\](.*)\[\/h5]/ig,
+        "regex" : /\[h5\](.*?)\[\/h5]/ig,
         "replace" : function(res){
             return '<h5> '+ res[1] + '</h5>';
         }
     },
     {
-        "regex" : /\[h6\](.*)\[\/h6]/ig,
+        "regex" : /\[h6\](.*?)\[\/h6]/ig,
         "replace" : function(res){
             return '<h6> '+ res[1] + '</h6>';
         }
