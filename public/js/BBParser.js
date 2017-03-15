@@ -1,31 +1,44 @@
 (function(public){
-const regexMatch = {
-    "url" : /^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/,
-    "hexaColor" : /^#?([a-f0-9]{6}|[a-f0-9]{3})$/,
-    "email" : /^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/,
-    "size" : /^[1-6]$/,
-    "text" : /[a-z0-9\s]*/i
-}
 const BBtoHtmlTags = [
     {
         "regex" : /</g,
         "replace" : function(){
-            return "&lt;"
+            return '&lt;'
         }
     },
     {
         "regex" : />/g,
         "replace" : function(){
-            return "&gt;"
+            return '&gt;'
         }
     },
     {
         "regex" : /\[\/?br\/?]/gi,
-        "replace" : function(){
-            return "<br>";
+        "replace" : function(res){
+            return '<br/>';
         }
     },
+    {
+        "regex" : /\[soundcloud\=(https?\:\/\/[\-_a-z0-9.\/]*)\]/gi,
+        "replace" : function(res){
+            return '<div style="position: relative;" >'
+            +'<img style="display: block;width: 100%;height: auto;" src="data:image/gif;base64,R0lGODlhEAAJAIAAAP///wAAACH5BAEAAAAALAAAAAAQAAkAAAIKhI+py+0Po5yUFQA7"/>'
+            +'<iframe  style="position: absolute;top: 0;left: 0;width: 100%;height: 100%;" class="youtube" type="text/html" src="https://w.soundcloud.com/player/?url='
+            + encodeURI(res[1]) + '?&color=black_white&visual=true&show_comments=true&hide_related=true&show_reposts=false" frameborder="0" scrolling="no"></iframe>'
+            +'</div>';
+        }
+    },
+    {
+        "regex" : /\[vimeo\=([-_a-z0-9]*)]/gi,
+        "replace" : function(res){
+            return '<div style="position: relative;">'
+            +'<img style="display: block;width: 100%;height: auto;" src="data:image/gif;base64,R0lGODlhEAAJAIAAAP///wAAACH5BAEAAAAALAAAAAAQAAkAAAIKhI+py+0Po5yUFQA7"/>'
+            +'<iframe style="position: absolute;top: 0;left: 0;width: 100%;height: 100%;" class="youtube" type="text/html" width="640" height="360" src="https://player.vimeo.com/video/'
+            + res[1] + '?badge=0" frameborder="0" allowfullscreen></iframe>'
+            +'</div>';
+        }
 
+    },
     {
         "regex" : /\[youtube\=([-_a-z0-9]*)]/gi,
         "replace" : function(res){
@@ -131,7 +144,7 @@ const BBtoHtmlTags = [
     },
 ]
 
-function BBParser(txt){
+public.BBParserToHtml = function(txt){
 
     for(let i in BBtoHtmlTags){
         let exec;
@@ -144,10 +157,10 @@ function BBParser(txt){
 public.BBtoHtml = function(bbParses){
     if(bbParses.constructor.name == "HTMLCollection"){
         for(let i = 0; i< bbParses.length; i++){
-            bbParses[i].innerHTML = BBParser(bbParses[i].textContent);
+            bbParses[i].innerHTML = public.BBParserToHtml(bbParses[i].textContent);
         }
     }else{
-        bbParses.innerHTML = BBParser(bbParses.textContent);
+        bbParses.innerHTML = public.BBParserToHtml(bbParses.textContent);
     }
 }
-})(window.BBparser = window.BBparser || {})
+})(window.BBParser = window.BBParser || {})
